@@ -1,273 +1,321 @@
-
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rainwater Harvesting Estimator</title>
-<link rel="stylesheet" href="style.css">
+<title>AquaHarvest — India's Rainwater Estimator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="script.js" defer></script>
+<link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
 
 
+
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#" onclick="goHome(event)">💧 Rainwater Harvesting Estimator</a>
-  <div class="nav-links">
-    <a class="nav-link active" href="#" id="navHome" onclick="goHome(event)">Home</a>
-    <a class="nav-link" href="#" id="navAbout" onclick="goAbout(event)">About</a>
-    <button class="theme-toggle" id="themeBtn" title="Toggle theme">🌙</button>
+  <a class="nav-wordmark" href="#" onclick="goPage('home',event)">
+    <div class="droplet"></div> AquaHarvest
+  </a>
+  <div class="nav-mid">
+    <a href="#" id="nl-cities" onclick="goSection('cities',event)">Cities</a>
+    <a href="#" id="nl-est" onclick="goPage('estimator',event)">Estimator</a>
+    <a href="#" id="nl-about" onclick="goPage('about',event)">About</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-pill" id="themeBtn" title="Toggle theme">
+  <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--water)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+  <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+    
   </div>
 </nav>
 
+<!-- ══════ HOME PAGE ══════ -->
+<div id="pg-home" class="pg on">
 
-<div class="page">
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Rainwater Intelligence for India</div>
+      <h1 class="hero-h1">Every drop<br>of <em>rain</em><br>has value.</h1>
+      <p class="hero-sub">AquaHarvest calculates exactly how much rainwater your roof can collect — month by month, city by city — and converts it into real rupee savings.</p>
+      <div class="hero-actions">
+        <button class="btn-water" onclick="goPage('estimator',event)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Start Estimating
+        </button>
+        <span class="hero-scroll-lbl">Scroll to explore ↓</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="water-illustration">
+        <div class="wi-drop">
+          <div class="wi-shine"></div>
+          <div class="wi-wave">
+            <svg width="200%" height="60" viewBox="0 0 400 60" preserveAspectRatio="none">
+              <path d="M0,30 Q50,10 100,30 Q150,50 200,30 Q250,10 300,30 Q350,50 400,30 Q450,10 500,30 Q550,50 600,30 Q650,10 700,30 Q750,50 800,30" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="wi-pct">65%<span>Tank Full</span></div>
+        </div>
+      </div>
+      <div class="hero-mini-stats">
+        <div class="hms"><div class="hms-n">25+</div><div class="hms-l">Cities</div></div>
+        <div class="hms"><div class="hms-n">12</div><div class="hms-l">Months</div></div>
+        <div class="hms"><div class="hms-n">₹0</div><div class="hms-l">Cost to use</div></div>
+      </div>
+    </div>
+  </section>
 
-
-<!-- ══════════ HOME ══════════ -->
-<section id="home">
-  <div class="home-hero">
-    <h1>Rainwater Harvesting Estimator</h1>
-    <p>Enter your details below and calculate your annual water savings.</p>
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>Mumbai · 2,167 mm/yr</span><span>Kochi · 3,000 mm/yr</span>
+      <span>Delhi · 617 mm/yr</span><span>Chennai · 1,400 mm/yr</span>
+      <span>Bengaluru · 971 mm/yr</span><span>Kolkata · 1,582 mm/yr</span>
+      <span>Dehradun · 2,073 mm/yr</span><span>Jodhpur · 362 mm/yr</span>
+      <span>Hyderabad · 812 mm/yr</span><span>Pune · 722 mm/yr</span>
+      <span>Mumbai · 2,167 mm/yr</span><span>Kochi · 3,000 mm/yr</span>
+      <span>Delhi · 617 mm/yr</span><span>Chennai · 1,400 mm/yr</span>
+      <span>Bengaluru · 971 mm/yr</span><span>Kolkata · 1,582 mm/yr</span>
+      <span>Dehradun · 2,073 mm/yr</span><span>Jodhpur · 362 mm/yr</span>
+      <span>Hyderabad · 812 mm/yr</span><span>Pune · 722 mm/yr</span>
+    </div>
   </div>
 
-
-  <div class="desk-layout">
-
-
-    <!-- ── LEFT: Input Card ── -->
-    <div class="main-card">
-      <div class="card-section-label">Roof &amp; Location Details</div>
-
-
-      <div class="form-row">
-        <label>City</label>
-        <div class="select-wrap">
-          <select class="dark-select" id="citySelect">
-            <option value="">Select city…</option>
-          </select>
-        </div>
+  <!-- CITIES -->
+  <section id="cities">
+    <div class="cities-header">
+      <div>
+        <h2>Rainfall profiles<br>across <em>India.</em></h2>
       </div>
-
-
-      <div class="city-chips" id="cityChips" style="display:none">
-        <div class="chip"><span class="chip-label">Annual Rainfall</span><span class="chip-val" id="ch-rain">—</span></div>
-        <div class="chip"><span class="chip-label">Runoff Coeff.</span><span class="chip-val" id="ch-runoff">—</span></div>
-        <div class="chip"><span class="chip-label">Default Roof</span><span class="chip-val" id="ch-roof">—</span></div>
-        <div class="chip"><span class="chip-label">Climate</span><span class="chip-val" id="ch-climate">—</span></div>
-      </div>
-
-
-      <div class="form-row">
-        <label>Roof Area (m²)</label>
-        <input class="dark-input" type="number" id="roofArea" min="1" max="5000" placeholder="e.g. 100">
-        <div class="input-hint">Enter the catchment area of your roof in square metres.</div>
-        <div class="err-msg" id="err-roof">Please enter a valid roof area (1 – 5000 m²).</div>
-      </div>
-
-
-      <div class="form-row">
-        <label>Roof Material</label>
-        <div class="select-wrap">
-          <select class="dark-select" id="roofMat">
-            <option value="concrete">Concrete (Runoff: 0.80)</option>
-            <option value="terracotta">Terracotta (Runoff: 0.75)</option>
-            <option value="metal">Metal Sheet (Runoff: 0.90)</option>
-          </select>
-        </div>
-        <div class="input-hint">Material affects how much rain actually flows into the tank.</div>
-      </div>
-
-
-      <div class="form-row">
-        <label>Tank Capacity (Litres)</label>
-        <input class="dark-input" type="number" id="tankSize" min="100" max="500000" placeholder="e.g. 5000">
-        <div class="input-hint">Total storage capacity of your rainwater tank in litres.</div>
-        <div class="err-msg" id="err-tank">Please enter a valid tank size (100 – 5,00,000 L).</div>
-      </div>
-
-
-      <div class="card-divider"></div>
-
-
-      <button class="calc-btn" id="calcBtn">
-        <span>⚡</span> Calculate My Savings
-      </button>
+      <p>Click any city card to pre-fill the estimator with its data. Sorted from wettest to driest.</p>
     </div>
+    <div class="city-scroll" id="cityScroll"></div>
+  </section>
+
+  <!-- FORMULA -->
+  <div id="formula">
+    <div class="formula-label">The Science Behind It</div>
+    <div class="formula-equation">
+      <span class="hl">Rainfall (mm)</span> × <span class="hl">Roof Area (m²)</span> × <span class="hl">Runoff Coefficient</span> = Monthly Inflow in Litres<br>
+      Simulated across all 12 months → Total Annual Harvest → <span class="hl">₹ Savings at ₹8 / 1000 L</span>
+    </div>
+    <p class="formula-note">The runoff coefficient accounts for your roof material — metal roofs lose only 10% to evaporation; terracotta loses up to 25%. We simulate month-by-month so overflow and dry spells are tracked accurately.</p>
+    <div class="formula-deco">H₂O</div>
+  </div>
+
+  <!-- IMPACT -->
+  <section id="impact">
+    <div class="impact-left reveal">
+      <div class="overline">Why It Matters</div>
+      <h2>Water scarcity is a now problem — not a future one.</h2>
+      <p>India receives over 4,000 billion cubic metres of rainfall annually. Less than 8% is captured. AquaHarvest helps you understand your slice of that potential — with precision, not guesswork.</p>
+      <ul class="impact-list">
+        <li><div class="il-icon">🔒</div><div><div class="il-title">Completely private</div><div class="il-desc">Zero servers, zero tracking — all computation runs in your browser.</div></div></li>
+        <li><div class="il-icon">📡</div><div><div class="il-title">Historical city data</div><div class="il-desc">Monthly averages derived from decades of Indian rainfall records.</div></div></li>
+        <li><div class="il-icon">⚡</div><div><div class="il-title">Millisecond results</div><div class="il-desc">Change any input and the entire 12-month simulation reruns instantly.</div></div></li>
+        <li><div class="il-icon">🎯</div><div><div class="il-title">Optimal tank sizing</div><div class="il-desc">We test 10 tank sizes and recommend the one that minimises waste.</div></div></li>
+      </ul>
+    </div>
+    <div class="impact-right reveal">
+      <div class="big-num-card">
+        <div class="bnc-n">3,000 mm</div>
+        <div class="bnc-lbl">Annual rainfall — Kochi</div>
+        <div class="bnc-desc">India's most rainfall-rich major city in our dataset. A 100 m² metal roof here captures over 2.7 lakh litres per year.</div>
+      </div>
+      <div class="big-num-card">
+        <div class="bnc-n">362 mm</div>
+        <div class="bnc-lbl">Annual — Jodhpur</div>
+        <div class="bnc-desc">Even arid cities benefit — targeted monsoon capture still saves thousands of litres.</div>
+      </div>
+      <div class="big-num-card">
+        <div class="bnc-n">25+</div>
+        <div class="bnc-lbl">Cities covered</div>
+        <div class="bnc-desc">From the Western Ghats to the Thar Desert.</div>
+      </div>
+    </div>
+  </section>
 
 
-    <!-- ── RIGHT: Results Panel ── -->
-    <div class="right-panel">
+
+  <footer>
+    <span class="ft-brand">AquaHarvest</span>
+    <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+    <button class="ft-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
+  </footer>
+</div>
 
 
-      <div class="no-results-placeholder" id="placeholder">
-        <div class="placeholder-icon">🌧️</div>
-        <div class="placeholder-title">Your simulation will appear here</div>
-        <div class="placeholder-sub">Select a city, enter your roof area and tank size on the left, then hit <strong>Calculate My Savings</strong> to see your 12-month water harvest breakdown, savings estimate, chart, and optimal tank recommendation.</div>
+<!-- ══════ ESTIMATOR PAGE ══════ -->
+<div id="pg-estimator" class="pg">
+  <div style="padding: calc(60px + 3rem) clamp(2rem,6vw,5rem) 5rem; min-height: 100vh; background: var(--cream2);">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div style="margin-bottom:2.5rem;">
+        <div style="font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--water);margin-bottom:.8rem;display:flex;align-items:center;gap:.8rem;"><span style="display:inline-block;width:24px;height:1px;background:var(--water)"></span>Rainwater Simulation</div>
+        <h2 style="font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:.6rem;">Run your <em style="font-style:italic;color:var(--water)">simulation.</em></h2>
+        <p style="font-size:.92rem;color:var(--ink3);line-height:1.65;max-width:560px;">Select a city, enter your roof area and tank size — your full 12-month harvest breakdown appears instantly on the right.</p>
+      </div>
+      <div class="est-layout">
+      <!-- inputs -->
+      <div class="input-card">
+        <div class="ic-head">Roof &amp; Location</div>
+        <div class="frow">
+          <label>City</label>
+          <div class="sel-wrap">
+            <select class="fi fi-sel" id="citySelect"><option value="">Select city…</option></select>
+          </div>
+        </div>
+        <div class="c-chips" id="cityChips" style="display:none">
+          <div class="c-chip"><div class="c-chip-l">Annual Rainfall</div><div class="c-chip-v" id="ch-rain">—</div></div>
+          <div class="c-chip"><div class="c-chip-l">Runoff Coeff.</div><div class="c-chip-v" id="ch-runoff">—</div></div>
+          <div class="c-chip"><div class="c-chip-l">Default Roof</div><div class="c-chip-v" id="ch-roof">—</div></div>
+          <div class="c-chip"><div class="c-chip-l">Climate</div><div class="c-chip-v" id="ch-climate">—</div></div>
+        </div>
+        <div class="frow">
+          <label>Roof Area (m²)</label>
+          <input class="fi" type="number" id="roofArea" min="1" max="5000" placeholder="e.g. 100">
+          <div class="fi-hint">Total catchment area in square metres.</div>
+          <div class="fi-err" id="err-roof">Enter a valid area (1 – 5000 m²).</div>
+        </div>
+        <div class="frow">
+          <label>Roof Material</label>
+          <div class="sel-wrap">
+            <select class="fi fi-sel" id="roofMat">
+              <option value="concrete">Concrete (Runoff: 0.80)</option>
+              <option value="terracotta">Terracotta (Runoff: 0.75)</option>
+              <option value="metal">Metal Sheet (Runoff: 0.90)</option>
+            </select>
+          </div>
+        </div>
+        <div class="frow">
+          <label>Tank Capacity (Litres)</label>
+          <input class="fi" type="number" id="tankSize" min="100" max="500000" placeholder="e.g. 5000">
+          <div class="fi-hint">Total storage of your rainwater tank.</div>
+          <div class="fi-err" id="err-tank">Enter a valid size (100 – 5,00,000 L).</div>
+        </div>
+        <div class="ic-div"></div>
+        <button class="run-btn" id="calcBtn">Run Simulation →</button>
       </div>
 
-
-      <div id="results-area">
-        <div class="sum-grid">
-          <div class="sum-card blue"><div class="sum-icon">🌧️</div><div class="sum-label">Water Harvested</div><div class="sum-num" id="r-harvested">—</div><div class="sum-sub">litres / year</div></div>
-          <div class="sum-card green"><div class="sum-icon">💰</div><div class="sum-label">Cost Saved</div><div class="sum-num" id="r-savings">—</div><div class="sum-sub">at ₹8 / 1000 L avg</div></div>
-          <div class="sum-card yellow"><div class="sum-icon">⚠️</div><div class="sum-label">Dry Months</div><div class="sum-num" id="r-shortfall">—</div><div class="sum-sub">months tank hits zero</div></div>
-          <div class="sum-card red"><div class="sum-icon">💦</div><div class="sum-label">Overflow Lost</div><div class="sum-num" id="r-overflow">—</div><div class="sum-sub">litres / year unused</div></div>
+      <!-- results -->
+      <div class="results-panel">
+        <div class="ph-box" id="placeholder">
+          <div class="ph-box-icon">🌧️</div>
+          <div class="ph-box-t">Awaiting your inputs</div>
+          <div class="ph-box-s">Select a city, enter roof area and tank size, then click <strong>Run Simulation</strong>.</div>
         </div>
-
-
-        <div class="chart-card">
-          <div class="chart-head">
-            <div class="chart-title">📊 Monthly Tank Level Simulation</div>
-            <div class="legend">
-              <div class="leg"><div class="leg-dot" style="background:#4f8ef7"></div>Tank Level</div>
-              <div class="leg"><div class="leg-dot" style="background:#00c896"></div>Inflow</div>
-              <div class="leg"><div class="leg-dot" style="background:#ef5350"></div>Overflow</div>
+        <div id="results-area">
+          <div class="sum-row">
+            <div class="sum-tile st-b"><div class="st-icon">🌧️</div><div class="st-lbl">Water Harvested</div><div class="st-num" id="r-harvested">—</div><div class="st-sub">litres / year</div></div>
+            <div class="sum-tile st-g"><div class="st-icon">💰</div><div class="st-lbl">Cost Saved</div><div class="st-num" id="r-savings">—</div><div class="st-sub">at ₹8 / 1000 L avg</div></div>
+            <div class="sum-tile st-y"><div class="st-icon">⚠️</div><div class="st-lbl">Dry Months</div><div class="st-num" id="r-shortfall">—</div><div class="st-sub">tank hits zero</div></div>
+            <div class="sum-tile st-r"><div class="st-icon">💦</div><div class="st-lbl">Overflow Lost</div><div class="st-num" id="r-overflow">—</div><div class="st-sub">litres unused</div></div>
+          </div>
+          <div class="chart-box">
+            <div class="cb-head">
+              <div class="cb-title">Monthly Tank Simulation</div>
+              <div class="cb-legend">
+                <div class="cbl"><div class="cbl-dot" style="background:var(--water)"></div>Tank</div>
+                <div class="cbl"><div class="cbl-dot" style="background:#00a86b"></div>Inflow</div>
+                <div class="cbl"><div class="cbl-dot" style="background:#c0392b"></div>Overflow</div>
+              </div>
             </div>
+            <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
           </div>
-          <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
-        </div>
-
-
-        <div class="rec-card">
-          <div class="rec-icon-wrap">💡</div>
-          <div>
-            <div class="rec-title">Optimal Tank Recommendation</div>
-            <div class="rec-body" id="recText">—</div>
+          <div class="rec-box">
+            <div class="rb-ico">💡</div>
+            <div><div class="rb-title">Optimal Tank Recommendation</div><div class="rb-body" id="recText">—</div></div>
+          </div>
+          <div class="tbl-box">
+            <div class="tbl-title">Month-by-Month Breakdown</div>
+            <table>
+              <thead><tr><th>Month</th><th>Rain mm</th><th>Inflow L</th><th>Tank End L</th><th>Overflow L</th><th>Status</th></tr></thead>
+              <tbody id="monthlyTbody"></tbody>
+            </table>
           </div>
         </div>
-
-
-        <div class="table-card">
-          <div class="table-title">📅 Month-by-Month Breakdown</div>
-          <table>
-            <thead><tr>
-              <th>Month</th><th>Rain (mm)</th><th>Inflow (L)</th>
-              <th>Tank End (L)</th><th>Overflow (L)</th><th>Status</th>
-            </tr></thead>
-            <tbody id="monthlyTbody"></tbody>
-          </table>
-        </div>
-      </div>
-
-
-    </div><!-- .right-panel -->
-  </div><!-- .desk-layout -->
-</section>
-
-
-<!-- ══════════ ABOUT ══════════ -->
-
-
-
-
-<section id="about">
-  <div class="about-wrap">
-    <div class="about-page-title">ℹ️ About This Estimator</div>
-    <div class="about-page-sub">How the simulation works, what the numbers mean, and its limitations.</div>
-
-
-    <!-- 1. How It Calculates -->
-    <div class="ab">
-      <div class="ab-title">⚡ How It Calculates</div>
-      <div class="ab-body">
-        We use the standard rainwater harvesting formula that engineers and urban planners use:
-        <div class="formula-box">
-          (Rainfall mm × Roof Area m² × Runoff Coefficient) = <strong>Monthly Inflow (Litres)</strong><br>
-          <span class="kw">Inflow</span> fills the tank → overflow if full → emptied each month<br>
-          <strong>Annual Harvest</strong> = Sum of all 12 months of water used from tank
-        </div>
-        Monthly rainfall data for each city is sourced from historical averages. The simulation runs month-by-month, carrying over leftover water from one month to the next — just like a real tank.
       </div>
     </div>
 
-
-    <!-- 2. What Runoff Coefficient Means -->
-    <div class="ab green">
-      <div class="ab-title">🏠 What the Runoff Coefficient Means</div>
-      <div class="ab-body">
-        Not all rain that falls on your roof reaches the tank — some evaporates, some is absorbed. The runoff coefficient represents how efficiently water is collected:
-        <ul class="ab-list" style="margin-top:0.7rem">
-          <li><strong>Metal / GI Sheet — 0.90</strong> &nbsp; Most efficient, very smooth surface</li>
-          <li><strong>Asphalt Shingles — 0.85</strong> &nbsp; Good efficiency, slightly porous</li>
-          <li><strong>Concrete — 0.80</strong> &nbsp; Common Indian rooftop, moderately efficient</li>
-          <li><strong>Terracotta / Clay Tile — 0.75</strong> &nbsp; Most absorption, least efficient</li>
-        </ul>
-      </div>
     </div>
-
-
-    <!-- 3. How Cost Savings Are Calculated -->
-    <div class="ab purple">
-      <div class="ab-title">💰 How Cost Savings Are Calculated</div>
-      <div class="ab-body">
-        We use ₹8 per 1,000 litres — the average Indian domestic water tariff across municipal corporations. Your actual rate may differ by city and slab.
-        <div class="formula-box">
-          Annual Harvest (L) ÷ 1000 × <span class="kw">₹8</span> = <strong>Annual Savings (₹)</strong>
-        </div>
-        This is a conservative estimate. If your municipality charges more (e.g. Delhi's ₹5–₹25 slabs), your real savings will be higher.
-      </div>
-    </div>
-
-
-    <!-- 4. How the Optimal Tank Recommendation Works -->
-    <div class="ab orange">
-      <div class="ab-title">📐 How the Recommendation Works</div>
-      <div class="ab-body">
-        After running your simulation, we also silently test 10 standard tank sizes (500 L → 50,000 L) for your city and roof. We then pick the size that gives the best balance of:
-        <ul class="ab-list" style="margin-top:0.6rem">
-          <li>Minimising <strong>overflow</strong> (water you collect but cannot store)</li>
-          <li>Minimising <strong>dry months</strong> (months where the tank runs empty)</li>
-        </ul>
-        The optimal tank is the one with the lowest combined penalty score — real guidance, not a generic suggestion.
-      </div>
-    </div>
-
-
-    <!-- 5. Benefits -->
-    <div class="ab">
-      <div class="ab-title">✅ Benefits</div>
-      <ul class="ab-list">
-        <li>🔍 See which months give you the most rainwater — plan usage accordingly</li>
-        <li>💸 Get a realistic ₹ savings estimate tailored to your roof and city</li>
-        <li>🌱 Understand your contribution to reducing municipal water demand</li>
-        <li>📊 Visual 12-month chart makes overflow and dry spells obvious at a glance</li>
-        <li>🔒 100% private — no signup, no server, all calculation happens in your browser</li>
-      </ul>
-    </div>
-
-
-    <!-- 6. Limitations -->
-    <div class="ab red">
-      <div class="ab-title">⚠️ Limitations</div>
-      <ul class="ab-list">
-        <li>Rainfall data is based on historical monthly averages — actual year-to-year variation can be significant</li>
-        <li>Water tariff is fixed at ₹8/1000 L — your local rate may be higher or lower</li>
-        <li>First-flush loss (the initial dirty runoff) is not deducted — install a first-flush diverter in practice</li>
-        <li>Tank losses due to evaporation, leakage, or sediment are not modelled</li>
-        <li>Demand is not modelled — the simulation focuses purely on supply (inflow vs. tank capacity)</li>
-      </ul>
-    </div>
-
-
-    <button class="close-btn" onclick="goHome(event)">✕ &nbsp;Close &nbsp;— &nbsp;Go Back</button>
   </div>
-</section>
+  <footer>
+    <span class="ft-brand">AquaHarvest</span>
+    <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+    <button class="ft-back" onclick="goPage('home',event)">← Home</button>
+  </footer>
+</div>
 
+<!-- ══════ ABOUT PAGE ══════ -->
+<div id="pg-about" class="pg">
+  <div class="abt-wrap">
+    <h2 class="abt-title">About<br><em>AquaHarvest.</em></h2>
+    <p class="abt-sub">How the simulation works, what the numbers mean, and what to keep in mind.</p>
 
-</div><!-- .page -->
+    <div class="abt-block wt">
+      <div class="abt-bh">⚡ How it calculates</div>
+      <div class="abt-bd">
+        We apply the standard civil-engineering rainwater harvesting formula:
+        <div class="abt-formula">(Rainfall mm × Roof Area m² × Runoff Coeff.) = <strong>Monthly Inflow (L)</strong><br><span class="abt-kw">Inflow</span> fills tank → overflow discarded → balance carries to next month<br><strong>Annual Harvest</strong> = 12-month cumulative water used from tank</div>
+        The simulation runs month-by-month, so overflow and dry spells are tracked precisely — not approximated.
+      </div>
+    </div>
+    <div class="abt-block gn">
+      <div class="abt-bh">🏠 Runoff coefficients explained</div>
+      <div class="abt-bd">
+        <ul class="abt-list">
+          <li><strong>Metal Sheet — 0.90</strong> · Smoothest surface, least evaporation</li>
+          <li><strong>Concrete — 0.80</strong> · Most common Indian rooftop</li>
+          <li><strong>Terracotta / Clay — 0.75</strong> · Most porous, lowest efficiency</li>
+        </ul>
+      </div>
+    </div>
+    <div class="abt-block pu">
+      <div class="abt-bh">💰 Cost savings methodology</div>
+      <div class="abt-bd">
+        <div class="abt-formula">Annual Harvest (L) ÷ 1000 × <span class="abt-kw">₹8</span> = Annual Savings</div>
+        ₹8 / 1000 L is the national average municipal tariff. Your city may charge more — real savings could be higher.
+      </div>
+    </div>
+    <div class="abt-block or">
+      <div class="abt-bh">📐 How the tank recommendation works</div>
+      <div class="abt-bd">
+        We silently test 10 standard sizes (500 L to 50,000 L) against your city and roof, scoring each by overflow volume and dry months. The size with the lowest penalty score is recommended.
+      </div>
+    </div>
+    <div class="abt-block rd">
+      <div class="abt-bh">⚠️ Limitations</div>
+      <div class="abt-bd">
+        <ul class="abt-list">
+          <li>Rainfall figures are historical monthly averages — actual years vary</li>
+          <li>First-flush contamination loss is not modelled — use a first-flush diverter</li>
+          <li>Evaporation, leakage and sediment losses inside the tank are not accounted for</li>
+          <li>Tariff is fixed at ₹8 — check your local municipal rate for accuracy</li>
+        </ul>
+      </div>
+    </div>
+    <button class="back-btn" onclick="goPage('home',event)">← Back to Home</button>
+  </div>
+  <footer style="margin-top:4rem">
+    <span class="ft-brand">AquaHarvest</span>
+    <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+    <button class="ft-back" onclick="goPage('home',event)">← Home</button>
+  </footer>
+</div>
 
-
-<footer>
-  <p><strong>💧 Rainwater Harvesting Estimator</strong><br> &nbsp;·&nbsp; Based on historical monthly rainfall averages &nbsp;·&nbsp; Made for water conservation 🌱</p>
-</footer>
-
-
-
+<script src="script.js"></script>
 
 </body>
 </html>
-
-
