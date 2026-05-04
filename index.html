@@ -8,12 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="style.css">
-
-
 </head>
 <body>
-
-
 
 <!-- NAV -->
 <nav>
@@ -27,17 +23,16 @@
   </div>
   <div class="nav-right">
     <button class="theme-pill" id="themeBtn" title="Toggle theme">
-  <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--water)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-  </svg>
-  <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </svg>
-</button>
-    
+      <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--water)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--tide)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
   </div>
 </nav>
 
@@ -121,7 +116,7 @@
     <div class="impact-left reveal">
       <div class="overline">Why It Matters</div>
       <h2>Water scarcity is a now problem — not a future one.</h2>
-      <p>India receives over 4,000 billion cubic metres of rainfall annually. Less than 8% is captured. AquaHarvest helps you understand your slice of that potential — with precision, not guesswork.</p>
+      <p>India receives over 4,000 billion cubic metres of rainfall annually. Less than 8% is captured. AquaHarvest helps you understand your slice of that potential — with precision, not guesswork.<br><b>Based on SDG - 6 : Clean Water and Sanitation</b></p>
       <ul class="impact-list">
         <li><div class="il-icon">🔒</div><div><div class="il-title">Completely private</div><div class="il-desc">Zero servers, zero tracking — all computation runs in your browser.</div></div></li>
         <li><div class="il-icon">📡</div><div><div class="il-title">Historical city data</div><div class="il-desc">Monthly averages derived from decades of Indian rainfall records.</div></div></li>
@@ -148,11 +143,12 @@
     </div>
   </section>
 
-
-
   <footer>
-    <span class="ft-brand">AquaHarvest</span>
-    <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+    <div class="ft-left">
+      <span class="ft-brand">AquaHarvest</span>
+      <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+      <p class="ft-team">A project by <strong>Comps-A, Batch C</strong> — Gabriel Rodrigues - 44 · Udit Yadav - 55· Aashish Patil - 61 · Kunal Patade - 53 </p>
+    </div>
     <button class="ft-back" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</button>
   </footer>
 </div>
@@ -252,8 +248,11 @@
     </div>
   </div>
   <footer>
-    <span class="ft-brand">AquaHarvest</span>
-    <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+    <div class="ft-left">
+      <span class="ft-brand">AquaHarvest</span>
+      <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+      <p class="ft-team">A project by <strong>Comps-A, Batch C</strong> — Gabriel Rodrigues - 44 · Udit Yadav  - 55 · Aashish Patil - 61 · Kunal Patade - 53</p>
+    </div>
     <button class="ft-back" onclick="goPage('home',event)">← Home</button>
   </footer>
 </div>
@@ -278,7 +277,7 @@
         <ul class="abt-list">
           <li><strong>Metal Sheet — 0.90</strong> · Smoothest surface, least evaporation</li>
           <li><strong>Concrete — 0.80</strong> · Most common Indian rooftop</li>
-          <li><strong>Terracotta / Clay — 0.75</strong> · Most porous, lowest efficiency</li>
+          <li><strong>Terracotta — 0.75</strong> · Most porous, lowest efficiency</li>
         </ul>
       </div>
     </div>
@@ -309,8 +308,11 @@
     <button class="back-btn" onclick="goPage('home',event)">← Back to Home</button>
   </div>
   <footer style="margin-top:4rem">
-    <span class="ft-brand">AquaHarvest</span>
-    <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+    <div class="ft-left">
+      <span class="ft-brand">AquaHarvest</span>
+      <p>Historical monthly rainfall data · 25+ Indian cities · Open and private</p>
+      <p class="ft-team">A project by <strong>Comps-A, Batch C</strong> — Gabriel Rodrigues - 44 · Udit Yadav - 55 · Aashish Patil - 61 · Kunal Patade - 53</p>
+    </div>
     <button class="ft-back" onclick="goPage('home',event)">← Home</button>
   </footer>
 </div>
