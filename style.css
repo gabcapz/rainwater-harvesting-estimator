@@ -1,4 +1,3 @@
-
 /* ══════════════════════════════════════════
    DESIGN DIRECTION:
    Editorial / Magazine — light cream base,
@@ -11,9 +10,11 @@
 :root {
   --cream:   #f5f0e8;
   --cream2:  #ede8dc;
+  --fcream:  #faf5f5;
   --ink:     #0e0f0f;
   --ink2:    #2a2c2c;
   --ink3:    #5a5e5e;
+  --pink:    #0e0f0f;
   --water:   #0a6ebd;
   --water2:  #0d8ce8;
   --tide:    #00b4d8;
@@ -26,9 +27,11 @@
 [data-theme="dark"] {
   --cream:  #0c0d0e;
   --cream2: #141618;
+  --fcream: #0c0d0e;
   --ink:    #f0ece4;
   --ink2:   #c8c4bc;
   --ink3:   #7a7870;
+  --pink:   #1b61d2;
   --water:  #3baeff;
   --water2: #60c8ff;
   --tide:   #00d4f0;
@@ -483,7 +486,7 @@ nav {
 .ic-div { height: 1px; background: var(--border); margin: 1.2rem 0; }
 .run-btn {
   width: 100%; padding: .95rem;
-  background: var(--ink); color: #fff;
+  background: var(--pink); color: #fff;
   border: none; border-radius: 8px;
   font-family: var(--sans); font-size: .95rem; font-weight: 600;
   cursor: pointer; transition: background .2s, transform .2s;
@@ -554,10 +557,11 @@ tr:last-child td { border: none; }
    ABOUT PAGE
 ══════════════════════════════ */
 #pg-about {
-  padding: calc(60px + 4rem) clamp(2rem,6vw,5rem) 5rem;
-  min-height: 100vh;
+  background: var(--cream2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
-.abt-wrap { max-width: 780px; margin: 0 auto; }
+.abt-wrap { padding: 5rem clamp(2rem,6vw,5rem); }
 .abt-title { font-family: var(--serif); font-size: clamp(2rem,4vw,2.8rem); font-weight: 900; margin-bottom: .5rem; letter-spacing: -.03em; }
 .abt-title em { font-style: italic; color: var(--water); }
 .abt-sub { font-size: .9rem; color: var(--ink3); margin-bottom: 2.5rem; line-height: 1.6; }

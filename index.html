@@ -121,7 +121,7 @@
         <li><div class="il-icon">🔒</div><div><div class="il-title">Completely private</div><div class="il-desc">Zero servers, zero tracking — all computation runs in your browser.</div></div></li>
         <li><div class="il-icon">📡</div><div><div class="il-title">Historical city data</div><div class="il-desc">Monthly averages derived from decades of Indian rainfall records.</div></div></li>
         <li><div class="il-icon">⚡</div><div><div class="il-title">Millisecond results</div><div class="il-desc">Change any input and the entire 12-month simulation reruns instantly.</div></div></li>
-        <li><div class="il-icon">🎯</div><div><div class="il-title">Optimal tank sizing</div><div class="il-desc">We test 10 tank sizes and recommend the one that minimises waste.</div></div></li>
+        <li><div class="il-icon">🎯</div><div><div class="il-title">Optimal tank sizing</div><div class="il-desc">We test tank sizes and recommend the one that minimises waste.</div></div></li>
       </ul>
     </div>
     <div class="impact-right reveal">
@@ -284,17 +284,17 @@
     <div class="abt-block pu">
       <div class="abt-bh">💰 Cost savings methodology</div>
       <div class="abt-bd">
-        <div class="abt-formula">Annual Harvest (L) ÷ 1000 × <span class="abt-kw">₹8</span> = Annual Savings</div>
+        <div class="abt-formula">(Annual Harvest (L) ÷ 1000) × <span class="abt-kw">₹8</span> = Annual Savings</div>
         ₹8 / 1000 L is the national average municipal tariff. Your city may charge more — real savings could be higher.
       </div>
     </div>
     <div class="abt-block or">
       <div class="abt-bh">📐 How the tank recommendation works</div>
       <div class="abt-bd">
-        We silently test 10 standard sizes (500 L to 50,000 L) against your city and roof, scoring each by overflow volume and dry months. The size with the lowest penalty score is recommended.
+        We silently test standard sizes (500 L to 500,000 L) against your city and roof, scoring each by overflow volume and dry months. The size with the lowest penalty score is recommended.
       </div>
     </div>
-    <div class="abt-block rd">
+    <!-- <div class="abt-block rd">
       <div class="abt-bh">⚠️ Limitations</div>
       <div class="abt-bd">
         <ul class="abt-list">
@@ -304,9 +304,10 @@
           <li>Tariff is fixed at ₹8 — check your local municipal rate for accuracy</li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <button class="back-btn" onclick="goPage('home',event)">← Back to Home</button>
   </div>
+  
   <footer style="margin-top:4rem">
     <div class="ft-left">
       <span class="ft-brand">AquaHarvest</span>
@@ -315,6 +316,7 @@
     </div>
     <button class="ft-back" onclick="goPage('home',event)">← Home</button>
   </footer>
+
 </div>
 
 <script src="script.js"></script>
